@@ -1,29 +1,95 @@
-# vue-mip
+Ссылка на демо  https://alarma1.github.io/vue-mib-demo/#/  
+Ссылка на исходники https://github.com/Alarma1/vue-mib
+# Компонент **ControlElement**
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+Этот компонент представляет собой кнопку, которая может менять своё состояние (активное/неактивное).
+## Использование
 
 ```sh
-npm install
+<template>
+    <div>
+        <ControlElement :quatrainData="data" @eventButtonClick="handleButtonClick"/>
+    </div>
+</template>
+
+<script>
+import ControlElement from './components/ControlElement.vue';
+
+export default {
+    components: {
+        ControlElement
+    },
+    data() {
+        return {
+            data: {
+                id: 1,
+                hide: false
+            }
+        }
+    },
+    methods: {
+        handleButtonClick(id) {
+            console.log('Нажата кнопка с id:', id);
+        }
+    }
+};
+</script>
 ```
 
-### Compile and Hot-Reload for Development
+## Props
+
+**quatrainData**  
+Тип: **Object**  
+Описание: Данные, используемые для отображения и управления состоянием кнопки.  
+Поля:  
+**id**: Идентификатор элемента.  
+**hide**: Флаг, указывающий текущее состояние кнопки (активное/неактивное).
+  
+# Компонент **PoemText**
+
+Этот компонент отображает текст четверостишия.
+
+## Использование
 
 ```sh
-npm run dev
+<template>
+    <div>
+        <PoemText :quatrain="quatrain"/>
+    </div>
+</template>
+
+<script>
+import PoemText from './components/PoemText.vue';
+
+export default {
+    components: {
+        PoemText
+    },
+    data() {
+        return {
+            quatrain: "Текст четверостишия..."
+        }
+    }
+};
+</script>
 ```
 
-### Compile and Minify for Production
+## **Props**
 
-```sh
-npm run build
-```
+**quatrain**  
+Тип: **String**  
+Описание: Текст четверостишия.
+
+# Инструкции для создания продакшена vue3+vite
+
+## 1. Сборка проекта:
+- Запустите сборку вашего приложения с помощью команды: npm run build
+Это создаст собранную версию приложения в папке `dist`.
+
+## 2. Развертывание на сервере:
+- Перенесите содержимое папки `dist` на сервер.
+
+## 3. Настройка маршрутизации:
+- Все запросы необходимо маршрутизировать на фаил `index.html`.
+
+
