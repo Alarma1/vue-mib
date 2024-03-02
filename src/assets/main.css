@@ -1,0 +1,21 @@
+@import 'font.css';
+
+body {
+    font-family: "dejavuserif";
+    background-color: #f0f0f0;
+    overflow-x: hidden;
+    margin: 0 calc(-1 * (100vw - 100%)) 0 0;
+}
+
+
+@media (max-width: 450px) {
+    /* MOBILE */
+}
+
+@media (min-width: 450px) and (max-width: 1024px) {
+    /* TABLET */
+}
+
+@media (min-width: 1024px) {
+    /* DESKTOP */
+}
